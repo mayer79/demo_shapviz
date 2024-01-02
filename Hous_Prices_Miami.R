@@ -17,6 +17,12 @@
 
 #' ## Introduction
 #' 
+
+knitr::opts_chunk$set(
+  fig.width = 6, fig.height = 5, comment = "", message = FALSE, warning = FALSE
+)
+
+#' 
 #' Welcome to this compact {shapviz} demo. We will model logarithmic house prices by
 #' typical features using XGBoost and study the model via SHAP.
 #' 
@@ -24,10 +30,6 @@
 #' 
 #' We will use 14k rows of miami house price data prepared by Prof. Steve Bourassa.
 #' It is shipped with {shapviz}.
-
-knitr::opts_chunk$set(
-  fig.width = 6, fig.height = 5, comment = "", message = FALSE, warning = FALSE
-)
 
 library(xgboost)
 library(ggplot2)

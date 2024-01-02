@@ -2888,6 +2888,9 @@ border-radius: 0px;
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
+<pre class="r"><code>knitr::opts_chunk$set(
+  fig.width = 6, fig.height = 5, comment = &quot;&quot;, message = FALSE, warning = FALSE
+)</code></pre>
 <p>Welcome to this compact {shapviz} demo. We will model logarithmic
 house prices by typical features using XGBoost and study the model via
 SHAP.</p>
@@ -2896,15 +2899,9 @@ SHAP.</p>
 <h2>The data</h2>
 <p>We will use 14k rows of miami house price data prepared by
 Prof. Steve Bourassa. It is shipped with {shapviz}.</p>
-<pre class="r"><code>knitr::opts_chunk$set(
-  fig.width = 6, fig.height = 5, comment = &quot;&quot;, message = FALSE, warning = FALSE
-)
-
-library(xgboost)</code></pre>
-<pre><code>## Warning: Paket &#39;xgboost&#39; wurde unter R Version 4.3.2 erstellt</code></pre>
-<pre class="r"><code>library(ggplot2)</code></pre>
-<pre><code>## Warning: Paket &#39;ggplot2&#39; wurde unter R Version 4.3.1 erstellt</code></pre>
-<pre class="r"><code>library(patchwork)
+<pre class="r"><code>library(xgboost)
+library(ggplot2)
+library(patchwork)
 library(shapviz)
 
 # Log transforms and feature selection
@@ -2927,20 +2924,20 @@ head(df)</code></pre>
   </script>
 </div>
 <pre class="r"><code>summary(df)</code></pre>
-<pre><code>##    log_price      center_dist        log_living       log_land     
-##  Min.   :11.18   Min.   :  3.826   Min.   :6.750   Min.   : 7.129  
-##  1st Qu.:12.37   1st Qu.: 42.823   1st Qu.:7.293   1st Qu.: 8.594  
-##  Median :12.64   Median : 65.852   Median :7.538   Median : 8.923  
-##  Mean   :12.71   Mean   : 68.490   Mean   :7.560   Mean   : 8.923  
-##  3rd Qu.:12.97   3rd Qu.: 89.358   3rd Qu.:7.812   3rd Qu.: 9.119  
-##  Max.   :14.79   Max.   :159.976   Max.   :8.746   Max.   :10.952  
-##  structure_quality      age          month_sold    
-##  Min.   :1.000     Min.   : 0.00   Min.   : 1.000  
-##  1st Qu.:2.000     1st Qu.:14.00   1st Qu.: 4.000  
-##  Median :4.000     Median :26.00   Median : 7.000  
-##  Mean   :3.514     Mean   :30.67   Mean   : 6.656  
-##  3rd Qu.:4.000     3rd Qu.:46.00   3rd Qu.: 9.000  
-##  Max.   :5.000     Max.   :96.00   Max.   :12.000</code></pre>
+<pre><code>   log_price      center_dist        log_living       log_land     
+ Min.   :11.18   Min.   :  3.826   Min.   :6.750   Min.   : 7.129  
+ 1st Qu.:12.37   1st Qu.: 42.823   1st Qu.:7.293   1st Qu.: 8.594  
+ Median :12.64   Median : 65.852   Median :7.538   Median : 8.923  
+ Mean   :12.71   Mean   : 68.490   Mean   :7.560   Mean   : 8.923  
+ 3rd Qu.:12.97   3rd Qu.: 89.358   3rd Qu.:7.812   3rd Qu.: 9.119  
+ Max.   :14.79   Max.   :159.976   Max.   :8.746   Max.   :10.952  
+ structure_quality      age          month_sold    
+ Min.   :1.000     Min.   : 0.00   Min.   : 1.000  
+ 1st Qu.:2.000     1st Qu.:14.00   1st Qu.: 4.000  
+ Median :4.000     Median :26.00   Median : 7.000  
+ Mean   :3.514     Mean   :30.67   Mean   : 6.656  
+ 3rd Qu.:4.000     3rd Qu.:46.00   3rd Qu.: 9.000  
+ Max.   :5.000     Max.   :96.00   Max.   :12.000  </code></pre>
 </div>
 <div id="xgboost-model" class="section level2">
 <h2>XGBoost model</h2>

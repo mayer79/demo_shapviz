@@ -2888,9 +2888,6 @@ border-radius: 0px;
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<pre class="r"><code>knitr::opts_chunk$set(
-  fig.width = 6, fig.height = 5, comment = &quot;&quot;, message = FALSE, warning = FALSE
-)</code></pre>
 <p>Welcome to this compact {shapviz} demo. We will model logarithmic
 house prices by typical features using XGBoost and study the model via
 SHAP.</p>
@@ -2899,6 +2896,9 @@ SHAP.</p>
 <h2>The data</h2>
 <p>We will use 14k rows of miami house price data prepared by
 Prof. Steve Bourassa. It is shipped with {shapviz}.</p>
+<pre class="r"><code>knitr::opts_chunk$set(
+  fig.width = 6, fig.height = 5, comment = &quot;&quot;, message = FALSE, warning = FALSE
+)</code></pre>
 <pre class="r"><code>library(xgboost)
 library(ggplot2)
 library(patchwork)

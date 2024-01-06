@@ -104,6 +104,7 @@ X_explain <- X_train[1:1000, ]
 shap_xgb <- shapviz(fit_xgb, X_pred = X_explain)
 shap_xgb
 head(shap_xgb$X, 2)
+head(shap_xgb$S, 2)
 
 #' ### Importance plots
 #' 
